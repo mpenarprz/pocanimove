@@ -11,5 +11,6 @@ function handleMouseMove(event) {
 		var duration = video.prop("duration");
 		var current_time = duration * event.pageX / window.innerWidth;
 		video.prop("currentTime", current_time);
+		console.log(current_time);
 	}
 }
