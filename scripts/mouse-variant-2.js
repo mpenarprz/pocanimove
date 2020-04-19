@@ -24,9 +24,8 @@ function handleTouchMove(event) {
 		var touches = event.changedTouches;
 
 		for (var i = 0; i < touches.length; i++) {
-			setTimeout(function () { 
-				refresh(touches[i].screenX, touches[i].screenY)
-			});
+			refresh(touches[i].screenX, touches[i].screenY);
+			window.requestAnimationFrame();
 		}
 	}
 }
