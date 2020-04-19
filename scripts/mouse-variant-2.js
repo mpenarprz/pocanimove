@@ -1,7 +1,6 @@
-document.onmousemove = handleMouseMove;
-document.touchmove = handleTouchMove;
 var video = $("#video");
-
+document.onmousemove = handleMouseMove;
+video.on("touchmove", handleTouchMove);
 
 function createVector(x,y){
 	var size = Math.sqrt(Math.pow(x,2) + Math.pow(y,2));
@@ -11,22 +10,27 @@ function createVector(x,y){
 }
 
 function handleMouseMove(event) {
-	event = event || window.event;
-	refresh(event.pageX, event.pageY);
-}
-
-function handleTouchMove(event) {
-	event.preventDefault();
-	var touches = event.changedTouches;
-
-	for (var i = 0; i < touches.length; i++) {
-		console.log(touches[i]);
-		//refresh(event.pageX, event.pageY);
+	if(throttle()){		
+		event = event || window.event;
+		refresh(event.pageX, event.pageY);
 	}
 }
 
+function handleTouchMove(event) {
+	if(throttle()){		
+		if (event.cancelable) {
+		   event.preventDefault();
+		}
+		var touches = event.changedTouches;
+
+		for (var i = 0; i < touches.length; i++) {
+			refresh(touches[i].screenX, touches[i].screenY);
+		}
+	}
+}
 
 function refresh(x,y){
+	throttle();
 	var ref_vector = createVector(0,-1);
 	var half_width = window.innerWidth / 2;
 	var half_height = window.innerHeight / 2;
