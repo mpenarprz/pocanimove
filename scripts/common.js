@@ -1,4 +1,4 @@
-var FPS = 60;
+var FPS = 23;
 var last_refresh = 0;
 var throttle_threshold = 1000 / FPS;
 
