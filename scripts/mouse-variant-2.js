@@ -32,7 +32,7 @@ function handleTouchMove(event) {
 
 function refresh(x,y){
 	throttle();
-	var ref_vector = createVector(0,-1);
+	var ref_vector = createVector(-1,0);
 	var half_width = window.innerWidth / 2;
 	var half_height = window.innerHeight / 2;
 	var x_percent = (x * 100 / window.innerWidth).toFixed(2);
@@ -42,7 +42,7 @@ function refresh(x,y){
 	var cos = ref_vector.x * mouse_vector.x + ref_vector.y * mouse_vector.y;
 	var angle = Math.acos(cos);
 	var angle_percent = angle/Math.PI;
-	var percent = x > window.innerWidth / 2 ? angle_percent * 0.5 : 0.5 * (2  - angle_percent);
+	var percent = y < window.innerHeight / 2 ? angle_percent * 0.5 : 0.5 * (2  - angle_percent);
 	
 	$("#text_coord").text('x: ' + x + ' y:' + y + ' x:' + x_percent + '% y:' + y_percent + '%' +
 	'ref_vector: [' + ref_vector.x.toFixed(2) + ',' + ref_vector.y.toFixed(2) + '](' + ref_vector.size.toFixed(2) + ')' +
