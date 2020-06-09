@@ -44,10 +44,12 @@ function refresh(x,y){
 	var angle_percent = angle/Math.PI;
 	var percent = y < window.innerHeight / 2 ? angle_percent * 0.5 : 0.5 * (2  - angle_percent);
 	
+	/*
 	$("#text_coord").text('x: ' + x + ' y:' + y + ' x:' + x_percent + '% y:' + y_percent + '%' +
 	'ref_vector: [' + ref_vector.x.toFixed(2) + ',' + ref_vector.y.toFixed(2) + '](' + ref_vector.size.toFixed(2) + ')' +
 	' mouse_vector: [' + mouse_vector.x.toFixed(2) + ',' + mouse_vector.y.toFixed(2) + '](' + mouse_vector.size.toFixed(2) + ')'+
 	' cos: ' + cos.toFixed(2) + ' angle: ' + angle.toFixed(2) + ' angle(%): ' + angle_percent.toFixed(2)+ ' percent(%): ' + percent.toFixed(2));
+	*/
 	
 	if(video !== null){
 		var duration = video.prop("duration");
